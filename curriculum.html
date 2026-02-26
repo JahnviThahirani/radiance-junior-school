@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Radiance Junior School Curriculum — Seven Developmental Pillars, age-wise programs and experiential learning for children aged 2–6 in Karanjade, Panvel." />
+  <title>Curriculum | Radiance Junior School</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Patrick+Hand&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    html, body { overflow-x: hidden; }
+
+    /* ---- Curriculum Hero ---- */
+    .curriculum-hero {
+      background: linear-gradient(135deg, #2B3990 0%, #3a4fa8 50%, #5B2D8E 100%);
+      padding: 5rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Decorative blob shapes */
+    .curriculum-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(255,210,0,0.12) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .curriculum-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(58,174,222,0.12) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Blob corner decorations */
+    .hero-blob-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: rgba(58, 174, 222, 0.15);
+      border-radius: 0% 60% 60% 0% / 0% 50% 50% 0%;
+      pointer-events: none;
+    }
+    .hero-blob-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 210, 0, 0.12);
+      border-radius: 60% 0% 0% 60% / 50% 0% 0% 50%;
+      pointer-events: none;
+    }
+
+    .curriculum-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo-circle {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
+    }
+    .hero-logo-circle img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+
+    .hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .hero-breadcrumb a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .hero-breadcrumb a:hover { color: #FFD200; }
+    .hero-breadcrumb span { color: #FFD200; }
+
+    .curriculum-hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .curriculum-hero h1 em {
+      font-style: normal;
+      color: #FFD200;
+    }
+
+    .curriculum-hero p {
+      font-family: 'Patrick Hand', sans-serif;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Quick nav pills linking to sections */
+    .hero-section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .hero-section-nav a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.10);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 0.5rem 1.2rem;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .hero-section-nav a:hover {
+      background: rgba(255,210,0,0.15);
+      border-color: rgba(255,210,0,0.4);
+      color: #FFD200;
+    }
+
+    .hero-section-nav a:focus-visible {
+      outline: 3px solid #FFD200;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .curriculum-hero { padding: 4rem 1rem 3rem; }
+    }
+  
+  /* ── Page Hero — exact copy from About Us ── */
+  .page-hero-blob-l {
+    position: absolute; top: -40px; left: -80px;
+    width: 300px; height: 300px;
+    background: rgba(58,174,222,0.22);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page-hero-blob-r {
+    position: absolute; top: -40px; right: -80px;
+    width: 300px; height: 300px;
+    background: rgba(80,80,140,0.45);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page-hero-badge {
+    display: inline-block;
+    background: rgba(255,210,0,0.18);
+    border: 1.5px solid rgba(255,210,0,0.4);
+    color: #FFD200;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    padding: 0.35rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+  .page-hero-logo {
+    width: 120px; height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
+  .page-hero-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .page-hero-sub {
+    color: rgba(255,255,255,0.82);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .page-hero-star {
+    position: absolute; color: #FFD200; opacity: 0.25; font-size: 1.4rem;
+    animation: float 5s ease-in-out infinite;
+  }
+  .page-hero-star:nth-child(3) { top: 15%; left: 8%; animation-delay: 0s; }
+  .page-hero-star:nth-child(4) { top: 30%; right: 12%; animation-delay: 1.5s; }
+  .page-hero-star:nth-child(5) { bottom: 20%; left: 15%; animation-delay: 0.8s; }
+  .page-hero-star:nth-child(6) { bottom: 30%; right: 8%; animation-delay: 2.2s; }
+  .page-breadcrumb {
+    position: absolute; top: 1.25rem; left: 2rem;
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: 'Nunito', sans-serif !important; font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6); z-index: 2;
+  }
+  .page-breadcrumb a { font-family: 'Nunito', sans-serif !important; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s ease; }
+  .page-breadcrumb a:hover { color: #FFD200; }
+  .page-breadcrumb span { font-family: 'Nunito', sans-serif !important; color: #FFD200; font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER — inlined from components/header.html
+     ========================================================= -->
+<style>
+  #main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 2px 16px rgba(43, 57, 144, 0.10);
+    transition: box-shadow 0.3s ease;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .nav-logo img {
+    height: 72px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1);
+  }
+  .nav-logo:hover img { transform: scale(1.04); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2B3990;
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    transition: color 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 1.1rem;
+    right: 1.1rem;
+    height: 3px;
+    background: #E32726;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+    transform-origin: left;
+  }
+  .nav-links a:hover { color: #E32726; background: rgba(227,39,38,0.06); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a.active { color: #E32726; font-weight: 800; }
+  .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.nav-cta {
+    background: #E32726;
+    color: #ffffff !important;
+    border-radius: 999px;
+    padding: 0.55rem 1.5rem;
+    font-weight: 800;
+    margin-left: 0.5rem;
+    box-shadow: 0 3px 12px rgba(227,39,38,0.30);
+    transition: background 0.2s ease, transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease;
+  }
+  .nav-links a.nav-cta::after { display: none; }
+  .nav-links a.nav-cta:hover { background: #c01f1f; color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,39,38,0.40); }
+  .nav-links a.nav-cta:active { transform: translateY(0); }
+  .nav-links a.nav-cta:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+  #nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  #nav-toggle:hover { background: rgba(43,57,144,0.08); }
+  @media (max-width: 768px) {
+    .nav-inner { height: 68px; padding: 0 1.25rem; }
+    .nav-logo img { height: 58px; }
+    #nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem 1.25rem 1.25rem;
+      border-top: 2px solid rgba(43,57,144,0.1);
+      box-shadow: 0 8px 24px rgba(43,57,144,0.12);
+      gap: 0.25rem;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { border-radius: 10px; padding: 0.7rem 1rem; }
+    .nav-links a.nav-cta { text-align: center; margin-top: 0.5rem; margin-left: 0; }
+  }
+</style>
+
+<header id="main-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Radiance Junior School — Home">
+      <img src="assets/logo.png" alt="Radiance Junior School" />
+    </a>
+    <button id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+      onclick="
+        const menu = document.getElementById('nav-menu');
+        const open = menu.classList.toggle('open');
+        this.setAttribute('aria-expanded', open);
+      ">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+           stroke="#2B3990" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="index.html"      id="nav-home">Home</a></li>
+      <li><a href="curriculum.html" id="nav-curriculum">Curriculum</a></li>
+      <li><a href="about.html"      id="nav-about">About Us</a></li>
+      <li><a href="contact.html"    id="nav-contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  (function() {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const map = {
+      'index.html': 'nav-home',
+      '': 'nav-home',
+      'curriculum.html': 'nav-curriculum',
+      'about.html': 'nav-about',
+      'contact.html': 'nav-contact',
+    };
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => a.classList.remove('active'));
+    const activeId = map[page];
+    if (activeId && activeId !== 'nav-contact') {
+      const el = document.getElementById(activeId);
+      if (el) el.classList.add('active');
+    }
+  })();
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.remove('open');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<!-- =========================================================
+     CURRICULUM HERO
+     ========================================================= -->
+<section class="curriculum-hero" aria-label="Curriculum page hero">
+  <div class="page-hero-blob-l"></div>
+  <div class="page-hero-blob-r"></div>
+  <span class="page-hero-star">★</span>
+  <span class="page-hero-star">✦</span>
+  <span class="page-hero-star">★</span>
+  <span class="page-hero-star">✦</span>
+  <div class="page-breadcrumb"><a href="index.html">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>Curriculum</span></div>
+  <div style="position:relative;z-index:1;max-width:800px;margin:0 auto;">
+    <div class="page-hero-logo">
+      <img src="assets/logo.png" alt="Radiance Junior School" />
+    </div>
+
+    <h1>Our Curriculum<br><em>Designed for Every Stage of Childhood</em></h1>
+    <p class="page-hero-sub">A joyful, play-based learning journey designed to nurture every dimension of your child's growth — from curiosity to confidence, from crayon to comprehension.</p>
+    <nav class="hero-section-nav" aria-label="Jump to section" style="margin-top:2rem;">
+      <a href="#pillars">Our Approach</a>
+      <a href="#programs">Programs by Age</a>
+      <a href="#beyond">Beyond the Classroom</a>
+      <a href="#faqs">FAQs</a>
+    </nav>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION 1 — Seven Developmental Pillars
+     Source: components/curriculum-pillars.html
+     ========================================================= -->
+
+<style>
+  .pillars-section {
+    padding: 5rem 1.5rem;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillars-section::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 210, 0, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pillars-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(58, 174, 222, 0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pillars-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .pillars-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillars-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(227, 39, 38, 0.08);
+    color: #E32726;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(227, 39, 38, 0.15);
+  }
+  .pillars-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #2B3990;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .pillars-title span { color: #E32726; position: relative; display: inline-block; }
+  .pillars-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .pillars-flower {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+  }
+  .pillar-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(43,57,144,0.06), 0 8px 32px rgba(43,57,144,0.05);
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+  }
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 18px;
+  }
+  .pillar-card:hover { transform: translateY(-6px); box-shadow: 0 4px 16px rgba(43,57,144,0.12), 0 16px 48px rgba(43,57,144,0.10); }
+  .pillar-card:hover::before { opacity: 1; }
+  .pillar-card[data-color="red"]    { --pc: #E32726; }
+  .pillar-card[data-color="blue"]   { --pc: #2B3990; }
+  .pillar-card[data-color="yellow"] { --pc: #F7941D; }
+  .pillar-card[data-color="green"]  { --pc: #5BBF21; }
+  .pillar-card[data-color="sky"]    { --pc: #3AAEDE; }
+  .pillar-card[data-color="purple"] { --pc: #5B2D8E; }
+  .pillar-card[data-color="pink"]   { --pc: #E8367C; }
+  .pillar-card:hover { border-color: var(--pc); }
+  .pillar-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 2rem;
+    background: color-mix(in srgb, var(--pc) 12%, transparent);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), background 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .pillar-card:hover .pillar-icon-wrap { background: var(--pc); transform: scale(1.1) rotate(-5deg); }
+  .pillar-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: var(--pc);
+    background: color-mix(in srgb, var(--pc) 10%, transparent);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+  }
+  .pillar-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #2B3990;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .pillar-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .pillar-card.pillar-center {
+    background: linear-gradient(135deg, #2B3990 0%, #1e2b6e 100%);
+    color: #fff;
+  }
+  .pillar-card.pillar-center .pillar-name { color: #FFD200; font-size: 1.1rem; }
+  .pillar-card.pillar-center .pillar-desc { color: rgba(255,255,255,0.8); }
+  .pillar-card.pillar-center .pillar-number { color: #FFD200; background: rgba(255,210,0,0.15); }
+  .pillar-card.pillar-center::before { background: radial-gradient(circle at 50% 50%, rgba(255,210,0,0.08) 0%, transparent 70%); opacity: 1; }
+  .pillar-card.pillar-center:hover { border-color: #FFD200; }
+  .pillars-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .pillars-flower { grid-template-columns: repeat(2, 1fr); }
+    .pillars-bottom-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .pillars-flower, .pillars-bottom-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="pillars-section" id="pillars" aria-label="Seven Developmental Pillars">
+  <div class="pillars-container">
+    <div class="pillars-header reveal">
+      <div class="pillars-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Our Approach
+      </div>
+      <h2 class="pillars-title">Learning Built on <span>Seven Developmental Pillars</span></h2>
+      <p class="pillars-subtitle">
+        At Radiance, every activity is purposefully designed around seven key areas of a child's growth — ensuring holistic development from day one.
+      </p>
+    </div>
+    <div class="pillars-flower reveal">
+      <div class="pillar-card" data-color="red">
+        <div class="pillar-number">01</div>
+        <div class="pillar-icon-wrap">🧠</div>
+        <div class="pillar-name">Cognitive Skills</div>
+        <div class="pillar-desc">Building memory, concentration & problem-solving abilities through structured play and exploration.</div>
+      </div>
+      <div class="pillar-card" data-color="blue">
+        <div class="pillar-number">02</div>
+        <div class="pillar-icon-wrap">💬</div>
+        <div class="pillar-name">Language &amp; Literacy</div>
+        <div class="pillar-desc">Fostering listening, speaking, reading and early writing to build confident communicators.</div>
+      </div>
+      <div class="pillar-card" data-color="green">
+        <div class="pillar-number">03</div>
+        <div class="pillar-icon-wrap">💚</div>
+        <div class="pillar-name">Socio-Emotional Skills</div>
+        <div class="pillar-desc">Nurturing empathy, self-awareness and relationship-building for positive social interactions.</div>
+      </div>
+      <div class="pillar-card" data-color="yellow">
+        <div class="pillar-number">04</div>
+        <div class="pillar-icon-wrap">✋</div>
+        <div class="pillar-name">Fine Motor Skills</div>
+        <div class="pillar-desc">Developing hand-eye coordination and precision through art, crafts, and writing readiness activities.</div>
+      </div>
+    </div>
+    <div class="pillars-bottom-row reveal">
+      <div class="pillar-card" data-color="sky">
+        <div class="pillar-number">05</div>
+        <div class="pillar-icon-wrap">🏃</div>
+        <div class="pillar-name">Gross Motor Skills</div>
+        <div class="pillar-desc">Building strength, coordination and balance through movement, dance, yoga and outdoor play.</div>
+      </div>
+      <div class="pillar-card pillar-center" data-color="blue">
+        <div class="pillar-number">06</div>
+        <div class="pillar-icon-wrap" style="background:rgba(255,210,0,0.15);">🌟</div>
+        <div class="pillar-name">Creative Expression</div>
+        <div class="pillar-desc">Unlocking imagination through music, storytelling, art, drama and free-form play every single day.</div>
+      </div>
+      <div class="pillar-card" data-color="purple">
+        <div class="pillar-number">07</div>
+        <div class="pillar-icon-wrap">🌿</div>
+        <div class="pillar-name">Life Skills &amp; Values</div>
+        <div class="pillar-desc">Instilling respect, kindness, self-care and responsibility — the foundation for a meaningful life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION 2 — A Curriculum that Grows With Your Child
+     Source: components/curriculum-grows.html
+     ========================================================= -->
+
+<style>
+  .grows-section {
+    padding: 5rem 1.5rem;
+    background: #f8faff;
+    position: relative;
+    overflow: hidden;
+  }
+  .grows-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #E32726, #F7941D, #FFD200, #5BBF21, #3AAEDE, #5B2D8E, #E8367C);
+  }
+  .grows-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .grows-header { text-align: center; margin-bottom: 3.5rem; }
+  .grows-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(43,57,144,0.08);
+    color: #2B3990;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(43,57,144,0.15);
+  }
+  .grows-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #2B3990;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .grows-title span { color: #E32726; }
+  .grows-subtitle { font-family: 'Nunito', sans-serif; font-size: 1.05rem; color: #666; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+  .programs-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .programs-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    bottom: 60px;
+    width: 3px;
+    background: linear-gradient(180deg, #E32726, #F7941D, #FFD200, #5BBF21);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  .program-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+  .program-item:nth-child(even) .program-card { order: 3; }
+  .program-item:nth-child(even) .program-empty { order: 1; }
+  .program-item:nth-child(even) .program-node  { order: 2; }
+  .program-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+    z-index: 2;
+  }
+  .program-node-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .program-age-badge {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    margin-top: 0.25rem;
+  }
+  .program-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(43,57,144,0.06), 0 8px 32px rgba(43,57,144,0.07);
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .program-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+  }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(43,57,144,0.10), 0 16px 48px rgba(43,57,144,0.10); }
+  .program-item[data-prog="playgroup"] .program-node-dot  { background: rgba(227,39,38,0.1); color: #E32726; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #E32726; }
+  .program-item[data-prog="playgroup"] .program-age-badge { background: #E32726; }
+  .program-item[data-prog="playgroup"] .program-card::after { background: #E32726; }
+  .program-item[data-prog="playgroup"] .program-card:hover { border-color: #E32726; }
+  .program-item[data-prog="nursery"] .program-node-dot  { background: rgba(247,148,29,0.1); color: #F7941D; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #F7941D; }
+  .program-item[data-prog="nursery"] .program-age-badge { background: #F7941D; }
+  .program-item[data-prog="nursery"] .program-card::after { background: #F7941D; }
+  .program-item[data-prog="nursery"] .program-card:hover { border-color: #F7941D; }
+  .program-item[data-prog="lkg"] .program-node-dot  { background: rgba(91,191,33,0.1); color: #5BBF21; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #5BBF21; }
+  .program-item[data-prog="lkg"] .program-age-badge { background: #5BBF21; }
+  .program-item[data-prog="lkg"] .program-card::after { background: #5BBF21; }
+  .program-item[data-prog="lkg"] .program-card:hover { border-color: #5BBF21; }
+  .program-item[data-prog="ukg"] .program-node-dot  { background: rgba(43,57,144,0.1); color: #2B3990; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #2B3990; }
+  .program-item[data-prog="ukg"] .program-age-badge { background: #2B3990; }
+  .program-item[data-prog="ukg"] .program-card::after { background: #2B3990; }
+  .program-item[data-prog="ukg"] .program-card:hover { border-color: #2B3990; }
+  .program-label { display: inline-block; font-family: 'Patrick Hand', sans-serif; font-size: 0.85rem; font-weight: 700; color: #999; margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+  .program-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; color: #2B3990; margin-bottom: 0.75rem; line-height: 1.2; }
+  .program-desc { font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: #666; line-height: 1.7; margin-bottom: 1.25rem; }
+  .program-highlights { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .program-tag { font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; background: #f0f4ff; color: #2B3990; }
+  @media (max-width: 768px) {
+    .programs-timeline::before { display: none; }
+    .program-item { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+    .program-empty { display: none; }
+    .program-node  { flex-direction: row; justify-content: flex-start; padding-left: 0; order: 0 !important; margin-bottom: 1rem; }
+    .program-card  { order: 1 !important; }
+    .program-item:nth-child(even) .program-card { order: 1 !important; }
+    .program-item:nth-child(even) .program-node  { order: 0 !important; }
+    .program-item:nth-child(even) .program-empty { display: none; }
+  }
+</style>
+
+<section class="grows-section" id="programs" aria-label="Curriculum programs by age">
+  <div class="grows-container">
+    <div class="grows-header reveal">
+      <div class="grows-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        Age-wise Programs
+      </div>
+      <h2 class="grows-title">A Curriculum that <span>Grows With Your Child</span></h2>
+      <p class="grows-subtitle">Each stage is thoughtfully designed to match your child's developmental milestones — nurturing curiosity, confidence and creativity at every age.</p>
+    </div>
+    <div class="programs-timeline">
+      <div class="program-item reveal" data-prog="playgroup">
+        <div class="program-card">
+          <span class="program-label">Playgroup</span>
+          <div class="program-name">Little Explorers</div>
+          <div class="program-desc">A gentle, loving start to school life. Children aged 2–3 are introduced to structured play in a safe, nurturing environment that helps them overcome separation anxiety and build trust. Every session is filled with sensory activities, songs, stories and hands-on discovery.</div>
+          <div class="program-highlights">
+            <span class="program-tag">Sensory Play</span>
+            <span class="program-tag">Circle Time</span>
+            <span class="program-tag">Rhymes & Songs</span>
+            <span class="program-tag">Emotional Security</span>
+          </div>
+        </div>
+        <div class="program-node">
+          <div class="program-node-dot">🌱</div>
+          <div class="program-age-badge">2–3 yrs</div>
+        </div>
+        <div class="program-empty"></div>
+      </div>
+      <div class="program-item reveal" data-prog="nursery">
+        <div class="program-empty"></div>
+        <div class="program-node">
+          <div class="program-node-dot">🌸</div>
+          <div class="program-age-badge">3–4 yrs</div>
+        </div>
+        <div class="program-card">
+          <span class="program-label">Nursery</span>
+          <div class="program-name">Growing Wings</div>
+          <div class="program-desc">Children aged 3–4 build a strong phonics and language foundation. They begin alphabet recognition, early writing patterns, number concepts and develop their social skills through group activities, art, and guided play with peers.</div>
+          <div class="program-highlights">
+            <span class="program-tag">Phonics Foundation</span>
+            <span class="program-tag">Number Play</span>
+            <span class="program-tag">Art & Craft</span>
+            <span class="program-tag">Social Skills</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-item reveal" data-prog="lkg">
+        <div class="program-card">
+          <span class="program-label">Lower KG</span>
+          <div class="program-name">Ready to Learn</div>
+          <div class="program-desc">Our LKG program for 4–5 year olds deepens academic readiness. Children master reading consonants, blend sounds, develop counting and early math skills, and engage in science explorations and project-based learning that fires their curiosity.</div>
+          <div class="program-highlights">
+            <span class="program-tag">Reading Ready</span>
+            <span class="program-tag">Early Math</span>
+            <span class="program-tag">Science Exploration</span>
+            <span class="program-tag">Creative Drama</span>
+          </div>
+        </div>
+        <div class="program-node">
+          <div class="program-node-dot">🦋</div>
+          <div class="program-age-badge">4–5 yrs</div>
+        </div>
+        <div class="program-empty"></div>
+      </div>
+      <div class="program-item reveal" data-prog="ukg">
+        <div class="program-empty"></div>
+        <div class="program-node">
+          <div class="program-node-dot">🚀</div>
+          <div class="program-age-badge">5–6 yrs</div>
+        </div>
+        <div class="program-card">
+          <span class="program-label">Upper KG</span>
+          <div class="program-name">Ready to Soar</div>
+          <div class="program-desc">Our UKG program prepares children for formal schooling with confidence. Children work on advanced reading comprehension, addition and subtraction concepts, project-based learning and develop the independent thinking skills needed for Grade 1 and beyond.</div>
+          <div class="program-highlights">
+            <span class="program-tag">Comprehension</span>
+            <span class="program-tag">Addition & Subtraction</span>
+            <span class="program-tag">Critical Thinking</span>
+            <span class="program-tag">School Readiness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION 3 — Learning Beyond the Classroom
+     Source: components/curriculum-beyond.html
+     ========================================================= -->
+
+<style>
+  .beyond-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #2B3990 0%, #1e2b6e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .beyond-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,210,0,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .beyond-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(58,174,222,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .beyond-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .beyond-header { text-align: center; margin-bottom: 3.5rem; }
+  .beyond-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,210,0,0.15);
+    color: #FFD200;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(255,210,0,0.25);
+  }
+  .beyond-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.8rem,4vw,2.6rem); color: #fff; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 1rem; }
+  .beyond-title span { color: #FFD200; }
+  .beyond-subtitle { font-family: 'Patrick Hand', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.75); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+  .beyond-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .beyond-card {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), background 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .beyond-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,rgba(255,255,255,0.03) 0%,transparent 60%);
+    border-radius: 20px;
+    pointer-events: none;
+  }
+  .beyond-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,210,0,0.3); transform: translateY(-5px); }
+  .beyond-card-icon {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.25rem;
+    background: rgba(255,255,255,0.1);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), background 0.3s ease;
+  }
+  .beyond-card:hover .beyond-card-icon { background: rgba(255,210,0,0.2); transform: scale(1.1) rotate(-5deg); }
+  .beyond-card-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; margin-bottom: 0.6rem; line-height: 1.3; }
+  .beyond-card-desc { font-family: 'Nunito', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .beyond-cta-strip {
+    background: rgba(255,210,0,0.1);
+    border: 1.5px solid rgba(255,210,0,0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .beyond-cta-text h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; color: #FFD200; margin-bottom: 0.4rem; }
+  .beyond-cta-text p { font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .beyond-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFD200;
+    color: #2B3990;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(255,210,0,0.3);
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .beyond-cta-btn:hover { background: #ffe033; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(255,210,0,0.45); }
+  .beyond-cta-btn:active { transform: translateY(0); }
+  .beyond-cta-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  @media (max-width: 900px) { .beyond-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) { .beyond-grid { grid-template-columns: 1fr; } .beyond-cta-strip { flex-direction: column; text-align: center; align-items: center; } }
+</style>
+
+<section class="beyond-section" id="beyond" aria-label="Learning Beyond the Classroom">
+  <div class="beyond-container">
+    <div class="beyond-header reveal">
+      <div class="beyond-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Experiential Learning
+      </div>
+      <h2 class="beyond-title">Learning <span>Beyond the Classroom</span></h2>
+      <p class="beyond-subtitle">At Radiance, the world is the classroom. Every outing, activity and celebration is a learning opportunity crafted with purpose.</p>
+    </div>
+    <div class="beyond-grid">
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🌙</div>
+        <div class="beyond-card-title">Day Care &amp; Tuition Classes</div>
+        <div class="beyond-card-desc">Our after-school program offers both supervised day care (available until 7:30 PM) and structured tuition sessions — giving working parents complete peace of mind while ensuring every child gets the academic support and personalised attention they need to thrive.</div>
+      </div>
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🎭</div>
+        <div class="beyond-card-title">Cultural Celebrations</div>
+        <div class="beyond-card-desc">Festivals, cultural days and events where children experience India's rich diversity — building inclusion, empathy and a sense of belonging.</div>
+      </div>
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🌱</div>
+        <div class="beyond-card-title">Garden &amp; Nature Play</div>
+        <div class="beyond-card-desc">Hands-on gardening, seed planting and nature exploration that teach responsibility, patience and a deep love for the environment.</div>
+      </div>
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🥋</div>
+        <div class="beyond-card-title">Extra-Curricular Activities</div>
+        <div class="beyond-card-desc">From classical dance and vocal music to karate and yoga, our structured extra-curricular program helps children discover their passions, build discipline and develop confidence beyond the classroom — all within the school premises.</div>
+      </div>
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🔬</div>
+        <div class="beyond-card-title">Mini Science Labs</div>
+        <div class="beyond-card-desc">Simple, awe-inspiring science experiments that ignite curiosity and teach children to observe, question and discover — just like real scientists.</div>
+      </div>
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🎨</div>
+        <div class="beyond-card-title">Art &amp; Craft Studio</div>
+        <div class="beyond-card-desc">Open-ended art, clay work, collage and messy play sessions where children express themselves freely — building creativity, confidence and fine motor mastery.</div>
+      </div>
+    </div>
+    <div class="beyond-cta-strip reveal">
+      <div class="beyond-cta-text">
+        <h3>See it for yourself — visit our school!</h3>
+        <p>Book a free school tour and watch your little one's eyes light up with curiosity and excitement.</p>
+      </div>
+      <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20would%20like%20to%20book%20a%20school%20visit." target="_blank" class="beyond-cta-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Book a School Visit
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION 4 — FAQs
+     Source: components/curriculum-faqs.html
+     ========================================================= -->
+
+<style>
+  .faq-section {
+    padding: 5rem 1.5rem;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(91,191,33,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .faq-container { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+  .faq-header { text-align: center; margin-bottom: 3rem; }
+  .faq-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(91,191,33,0.09);
+    color: #5BBF21;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(91,191,33,0.18);
+  }
+  .faq-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.8rem,4vw,2.4rem); color: #2B3990; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .faq-title span { color: #E32726; }
+  .faq-subtitle { font-family: 'Nunito', sans-serif; font-size: 1rem; color: #777; line-height: 1.7; }
+  .faq-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+  .faq-item {
+    background: #fff;
+    border: 2px solid #eef0f8;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .faq-item.open { border-color: #2B3990; box-shadow: 0 4px 24px rgba(43,57,144,0.10); }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+  .faq-question:hover { background: rgba(43,57,144,0.03); }
+  .faq-question:focus-visible { outline: 3px solid #FFD200; outline-offset: -3px; border-radius: 14px; }
+  .faq-q-text { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; color: #2B3990; line-height: 1.4; }
+  .faq-item.open .faq-q-text { color: #E32726; }
+  .faq-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: #f0f4ff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.25s ease, transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .faq-icon svg { transition: transform 0.3s cubic-bezier(.22,1,.36,1); color: #2B3990; }
+  .faq-item.open .faq-icon { background: #E32726; }
+  .faq-item.open .faq-icon svg { transform: rotate(45deg); color: #fff; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(.22,1,.36,1); }
+  .faq-item.open .faq-answer { max-height: 400px; }
+  .faq-answer-inner {
+    padding: 0 1.75rem 1.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.92rem;
+    color: #666;
+    line-height: 1.75;
+    border-top: 1px solid #eef0f8;
+    padding-top: 1.25rem;
+  }
+  .faq-contact-prompt {
+    background: linear-gradient(135deg,rgba(43,57,144,0.05) 0%,rgba(227,39,38,0.03) 100%);
+    border: 1.5px solid rgba(43,57,144,0.10);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .faq-contact-prompt p { font-family: 'Patrick Hand', sans-serif; font-size: 1.15rem; color: #555; margin-bottom: 1.25rem; line-height: 1.6; }
+  .faq-contact-prompt p strong { color: #2B3990; font-family: 'Nunito', sans-serif; font-weight: 900; }
+  .faq-contact-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .faq-btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #E32726; color: #fff;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem;
+    padding: 0.75rem 1.75rem; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(227,39,38,0.30);
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .faq-btn-primary:hover { background: #c01f1f; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(227,39,38,0.40); }
+  .faq-btn-primary:active { transform: translateY(0); }
+  .faq-btn-primary:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+  .faq-btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #25D366; color: #fff;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem;
+    padding: 0.75rem 1.75rem; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.30);
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .faq-btn-whatsapp:hover { background: #1da851; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,211,102,0.45); }
+  .faq-btn-whatsapp:active { transform: translateY(0); }
+  .faq-btn-whatsapp:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+</style>
+
+<section class="faq-section" id="faqs" aria-label="Frequently Asked Questions">
+  <div class="faq-container">
+    <div class="faq-header reveal">
+      <div class="faq-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        Got Questions?
+      </div>
+      <h2 class="faq-title">Frequently Asked <span>Questions</span></h2>
+      <p class="faq-subtitle">Everything parents ask before joining the Radiance family — answered honestly.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item" role="group">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span class="faq-q-text">What is the admission age for Radiance Junior School?</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">We welcome children from 2 years of age for our Playgroup program. Our programs run from 2–6 years across Playgroup, Nursery, LKG and UKG. The exact age cutoff is assessed at the time of admission based on the child's readiness and our current capacity.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="group">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span class="faq-q-text">How does Radiance's curriculum differ from a regular preschool?</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Our curriculum is built on Seven Developmental Pillars — addressing not just academic readiness, but cognitive, emotional, social, physical and creative growth simultaneously. Every activity is purposefully designed, not just time-filling. We follow a play-based learning approach where children discover concepts through exploration, not rote instruction.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="group">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span class="faq-q-text">What is the school timing and the student-teacher ratio?</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">We have flexible half-day and full-day program timings to suit working parents. Our batches are intentionally kept small with a low student-to-teacher ratio to ensure every child receives personalised attention, care and support throughout their day. Please reach out to us for the specific schedule for each program.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="group">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span class="faq-q-text">How do you communicate a child's progress with parents?</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">We share detailed, colourful Progress Reports with parents each term — covering all seven developmental areas holistically. Beyond formal reports, our teachers maintain regular communication through parent-teacher meetings, activity updates and our dedicated WhatsApp channel where you can see your child's daily learning moments.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="group">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span class="faq-q-text">Are admissions open? How do I apply?</span>
+          <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Admissions are currently open for the 2025–26 academic year. The quickest way to start is to message us on WhatsApp at +91 9770 32 2022 — we'll schedule a school visit, walk you through the programs and guide you through the admission process. Seats are limited, so we'd encourage early enquiries.</div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-contact-prompt reveal">
+      <p>Still have questions? <strong>We'd love to hear from you.</strong><br>Our team is happy to answer anything before you visit us.</p>
+      <div class="faq-contact-buttons">
+        <a href="tel:+919770322022" class="faq-btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Call Us
+        </a>
+        <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20have%20a%20question%20about%20your%20curriculum." target="_blank" class="faq-btn-whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+
+
+<!-- =========================================================
+     FOOTER — inlined from components/footer.html
+     ========================================================= -->
+<footer style="background:linear-gradient(135deg,#2B3990 0%,#1e2b6e 100%);color:#fff;padding:3rem 2rem 1.5rem;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-bottom:2.5rem;">
+      <div>
+        <img src="assets/logo.png" alt="Radiance Junior School" style="height:100px;width:auto;margin-bottom:1rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3));" />
+        <p style="color:var(--yellow);font-family:'Patrick Hand',sans-serif;font-size:1.1rem;font-weight:700;line-height:1.5;margin-bottom:0.6rem;">Where Little Learners Grow, Explore & Thrive!</p>
+        <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;line-height:1.6;margin-bottom:1.25rem;">A joyful, nurturing space for your little one's first big steps in learning.</p>
+        <div style="display:flex;gap:0.75rem;">
+          <a href="https://www.instagram.com/radiance_preschool/" target="_blank" aria-label="Instagram" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Radiancejuniorschool" target="_blank" aria-label="YouTube" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://share.google/gVPGNSkuBPrVfjtdN" target="_blank" aria-label="Google Reviews" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </a>
+          <a href="tel:+919770322022" aria-label="Call us" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Quick Links</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li><a href="index.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">🏠 Home</a></li>
+          <li><a href="curriculum.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">📚 Curriculum</a></li>
+          <li><a href="about.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">🏫 About Us</a></li>
+          <li><a href="index.html#testimonials" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">⭐ Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Contact Us</h4>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="color:rgba(255,255,255,0.75);font-size:0.85rem;line-height:1.6;">📍 Shop No. 7-11, Plot No. 17, Sector-2A, Karanjade, Panvel, Maharashtra - 410 206</div>
+          <a href="tel:+919770322022" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">📞 +91 9770 32 2022</a>
+          <a href="/cdn-cgi/l/email-protection#bfcddedbd6ded1dcdad5cad1d6d0cdccdcd7d0d0d391cdd5cc8d8affd8d2ded6d391dcd0d2" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;word-break:break-all;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">✉️ <span class="__cf_email__" data-cfemail="037162676a626d606669766d6a6c7170606b6c6c6f2d716970313643646e626a6f2d606c6e">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Enquire Now</h4>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;">Admissions open for 2025–26. Reach out on WhatsApp for fastest response!</p>
+        <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" class="btn-whatsapp" style="font-size:0.9rem;padding:0.65rem 1.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Enquiry
+        </a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="color:rgba(255,255,255,0.6);font-size:0.8rem;">© 2025 Radiance Junior School. All rights reserved. | Karanjade, Panvel, Maharashtra</div>
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Made with ❤️ for little learners</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20am%20interested%20in%20admissions." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Intersection Observer for reveal animations -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isInterse

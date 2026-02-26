@@ -1,0 +1,319 @@
+<!-- =========================================================
+     RADIANCE JUNIOR SCHOOL — Curriculum: Seven Developmental Pillars
+     Section component — included in curriculum.html
+     ========================================================= -->
+
+<style>
+  .pillars-section {
+    padding: 5rem 1.5rem;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background decoration */
+  .pillars-section::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 210, 0, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .pillars-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(58, 174, 222, 0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .pillars-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pillars-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .pillars-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(227, 39, 38, 0.08);
+    color: #E32726;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(227, 39, 38, 0.15);
+  }
+
+  .pillars-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #2B3990;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .pillars-title span {
+    color: #E32726;
+    position: relative;
+    display: inline-block;
+  }
+
+  .pillars-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* Central flower layout for the 7 pillars */
+  .pillars-flower {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+
+  /* Pillar Card */
+  .pillar-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow:
+      0 2px 8px rgba(43, 57, 144, 0.06),
+      0 8px 32px rgba(43, 57, 144, 0.05);
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 18px;
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 4px 16px rgba(43, 57, 144, 0.12),
+      0 16px 48px rgba(43, 57, 144, 0.10);
+  }
+
+  .pillar-card:hover::before { opacity: 1; }
+
+  /* Color themes for each pillar */
+  .pillar-card[data-color="red"]    { --pc: #E32726; }
+  .pillar-card[data-color="blue"]   { --pc: #2B3990; }
+  .pillar-card[data-color="yellow"] { --pc: #F7941D; }
+  .pillar-card[data-color="green"]  { --pc: #5BBF21; }
+  .pillar-card[data-color="sky"]    { --pc: #3AAEDE; }
+  .pillar-card[data-color="purple"] { --pc: #5B2D8E; }
+  .pillar-card[data-color="pink"]   { --pc: #E8367C; }
+
+  .pillar-card:hover { border-color: var(--pc); }
+
+  .pillar-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 2rem;
+    background: color-mix(in srgb, var(--pc) 12%, transparent);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), background 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pillar-card:hover .pillar-icon-wrap {
+    background: var(--pc);
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  .pillar-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: var(--pc);
+    background: color-mix(in srgb, var(--pc) 10%, transparent);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+  }
+
+  .pillar-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #2B3990;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pillar-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Center pillar — highlighted */
+  .pillar-card.pillar-center {
+    grid-column: span 1;
+    background: linear-gradient(135deg, #2B3990 0%, #1e2b6e 100%);
+    color: #fff;
+    position: relative;
+  }
+  .pillar-card.pillar-center .pillar-name { color: #FFD200; font-size: 1.1rem; }
+  .pillar-card.pillar-center .pillar-desc { color: rgba(255,255,255,0.8); }
+  .pillar-card.pillar-center .pillar-number { color: #FFD200; background: rgba(255,210,0,0.15); }
+  .pillar-card.pillar-center::before {
+    background: radial-gradient(circle at 50% 50%, rgba(255,210,0,0.08) 0%, transparent 70%);
+    opacity: 1;
+  }
+  .pillar-card.pillar-center:hover { border-color: #FFD200; }
+
+  /* Bottom strip — 3 more pillars full row */
+  .pillars-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .pillars-flower {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pillars-bottom-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .pillars-flower,
+    .pillars-bottom-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="pillars-section" id="pillars" aria-label="Seven Developmental Pillars">
+  <div class="pillars-container">
+
+    <!-- Header -->
+    <div class="pillars-header reveal">
+      <div class="pillars-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Our Approach
+      </div>
+      <h2 class="pillars-title">
+        Learning Built on<br><span>Seven Developmental Pillars</span>
+      </h2>
+      <p class="pillars-subtitle">
+        At Radiance, every activity is purposefully designed around seven key areas of a child's growth — ensuring holistic development from day one.
+      </p>
+    </div>
+
+    <!-- Top row: 4 pillars -->
+    <div class="pillars-flower reveal">
+      <div class="pillar-card" data-color="red">
+        <div class="pillar-number">01</div>
+        <div class="pillar-icon-wrap">🧠</div>
+        <div class="pillar-name">Cognitive Skills</div>
+        <div class="pillar-desc">Building memory, concentration & problem-solving abilities through structured play and exploration.</div>
+      </div>
+
+      <div class="pillar-card" data-color="blue">
+        <div class="pillar-number">02</div>
+        <div class="pillar-icon-wrap">💬</div>
+        <div class="pillar-name">Language &amp; Literacy</div>
+        <div class="pillar-desc">Fostering listening, speaking, reading and early writing to build confident communicators.</div>
+      </div>
+
+      <div class="pillar-card" data-color="green">
+        <div class="pillar-number">03</div>
+        <div class="pillar-icon-wrap">💚</div>
+        <div class="pillar-name">Socio-Emotional Skills</div>
+        <div class="pillar-desc">Nurturing empathy, self-awareness and relationship-building for positive social interactions.</div>
+      </div>
+
+      <div class="pillar-card" data-color="yellow">
+        <div class="pillar-number">04</div>
+        <div class="pillar-icon-wrap">✋</div>
+        <div class="pillar-name">Fine Motor Skills</div>
+        <div class="pillar-desc">Developing hand-eye coordination and precision through art, crafts, and writing readiness activities.</div>
+      </div>
+    </div>
+
+    <!-- Bottom row: 3 pillars -->
+    <div class="pillars-bottom-row reveal">
+      <div class="pillar-card" data-color="sky">
+        <div class="pillar-number">05</div>
+        <div class="pillar-icon-wrap">🏃</div>
+        <div class="pillar-name">Gross Motor Skills</div>
+        <div class="pillar-desc">Building strength, coordination and balance through movement, dance, yoga and outdoor play.</div>
+      </div>
+
+      <div class="pillar-card pillar-center" data-color="blue">
+        <div class="pillar-number">06</div>
+        <div class="pillar-icon-wrap" style="background:rgba(255,210,0,0.15);">🌟</div>
+        <div class="pillar-name">Creative Expression</div>
+        <div class="pillar-desc">Unlocking imagination through music, storytelling, art, drama and free-form play every single day.</div>
+      </div>
+
+      <div class="pillar-card" data-color="purple">
+        <div class="pillar-number">07</div>
+        <div class="pillar-icon-wrap">🌿</div>
+        <div class="pillar-name">Life Skills &amp; Values</div>
+        <div class="pillar-desc">Instilling respect, kindness, self-care and responsibility — the foundation for a meaningful life.</div>
+      </div>
+    </div>
+
+  </div>
+</section>

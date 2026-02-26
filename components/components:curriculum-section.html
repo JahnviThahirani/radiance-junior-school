@@ -1,0 +1,727 @@
+     RADIANCE JUNIOR SCHOOL — Curriculum Section
+     ============================================= -->
+<section id="curriculum" class="curriculum-section">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+    .curriculum-section {
+      padding: 0 0 5rem;
+      background: linear-gradient(135deg, #f0f8ff 0%, #fff8f0 50%, #f0fff4 100%);
+      position: relative;
+      overflow: visible;
+    }
+
+    /* ── Hero banner — text left, train right ── */
+    .curriculum-hero {
+      background: #f0ece4;
+      padding: 4rem 0 3.5rem;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .curriculum-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .curriculum-hero-text { position: relative; z-index: 2; }
+    .curriculum-hero-text h2 {
+      font-family: 'Lilita One', 'Nunito', sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      color: #2B3990;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      margin: 0 0 1.2rem;
+    }
+    .curriculum-hero-text p {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+      color: #555;
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0;
+    }
+
+    /* ── Train scene ── */
+    .train-scene {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 240px;
+    }
+
+    /* Track */
+    .train-track {
+      position: absolute;
+      bottom: 28px;
+      left: 0; right: 0;
+      height: 14px;
+    }
+    .train-track-rail {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: #8B6B3D;
+      border-radius: 3px;
+    }
+    .train-track-rail.top-rail {
+      bottom: 9px;
+    }
+    /* Sleepers */
+    .train-track-sleepers {
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      display: flex;
+      gap: 18px;
+      overflow: hidden;
+    }
+    .sleeper {
+      width: 12px; height: 14px;
+      background: #6B4F2A;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Train wrapper — sits on track */
+    .train-wrapper {
+      position: absolute;
+      bottom: 42px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    /* Smoke puffs */
+    .smoke-container {
+      position: absolute;
+      top: -20px;
+      left: 38px;
+      display: flex;
+      gap: 6px;
+      align-items: flex-end;
+    }
+    .smoke-puff {
+      border-radius: 50%;
+      background: rgba(180,180,180,0.55);
+      animation: smokePuff 2s ease-out infinite;
+    }
+    .smoke-puff:nth-child(1) { width:12px; height:12px; animation-delay:0s; }
+    .smoke-puff:nth-child(2) { width:17px; height:17px; animation-delay:0.4s; }
+    .smoke-puff:nth-child(3) { width:22px; height:22px; animation-delay:0.8s; }
+    @keyframes smokePuff {
+      0%   { opacity: 0.7; transform: translateY(0) scale(1); }
+      100% { opacity: 0;   transform: translateY(-40px) scale(1.5); }
+    }
+
+    /* Locomotive SVG */
+    .locomotive { position: relative; }
+
+    /* Wheels */
+    .wheel {
+      animation: spinWheel 1.2s linear infinite;
+      transform-origin: center;
+    }
+    @keyframes spinWheel {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Gentle rock */
+    .train-wrapper {
+      animation: trainRock 3s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+    @keyframes trainRock {
+      0%,100% { transform: translateX(-50%) rotate(0deg); }
+      25%      { transform: translateX(-50%) rotate(0.4deg); }
+      75%      { transform: translateX(-50%) rotate(-0.4deg); }
+    }
+
+    /* Carriage connector bounce */
+    .carriage-bounce {
+      animation: carriageBounce 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes carriageBounce {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-3px); }
+    }
+
+    /* Decorative blob behind train */
+    .train-blob {
+      position: absolute;
+      right: -20px; bottom: 10px;
+      width: 200px; height: 180px;
+      background: #FFD200;
+      border-radius: 60% 40% 55% 45% / 45% 55% 50% 50%;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .curriculum-hero-inner { grid-template-columns: 1fr; }
+      .train-scene { height: 180px; }
+    }
+    @media (max-width: 500px) {
+      .curriculum-hero { padding: 3rem 0 2.5rem; }
+    }
+  </style>
+
+  <!-- ── Curriculum Hero: text + animated train ── -->
+  <div class="curriculum-hero">
+    <div class="curriculum-hero-inner">
+
+      <!-- Left: text -->
+      <div class="curriculum-hero-text reveal">
+        <h2>Built on Science.<br>Powered by Play.</h2>
+        <p>Our Seven Petal Approach is built on how children actually learn — through curiosity, movement, and joy. It gently nurtures language, logic, creativity, social skills, and so much more, one petal at a time.</p>
+      </div>
+
+      <!-- Right: animated train -->
+      <div class="train-scene" aria-hidden="true">
+        <div class="train-blob"></div>
+
+        <!-- Track -->
+        <div class="train-track">
+          <div class="train-track-rail top-rail"></div>
+          <div class="train-track-rail"></div>
+          <div class="train-track-sleepers">
+            <!-- JS generates sleepers -->
+          </div>
+        </div>
+
+        <!-- Train -->
+        <div class="train-wrapper">
+
+          <!-- Smoke -->
+          <div class="smoke-container">
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+            <div class="smoke-puff"></div>
+          </div>
+
+          <!-- Locomotive -->
+          <svg class="locomotive" width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <rect x="10" y="30" width="120" height="52" rx="10" fill="#2B3990"/>
+            <!-- Cabin top -->
+            <rect x="68" y="12" width="58" height="28" rx="8" fill="#E32726"/>
+            <!-- Cabin windows -->
+            <rect x="76" y="18" width="18" height="16" rx="4" fill="#FFD200" opacity="0.9"/>
+            <rect x="100" y="18" width="18" height="16" rx="4" fill="#FFD200" opacity="0.9"/>
+            <!-- Boiler highlight -->
+            <ellipse cx="38" cy="56" rx="22" ry="18" fill="#3AAEDE"/>
+            <ellipse cx="38" cy="56" rx="16" ry="13" fill="#2B3990"/>
+            <!-- Front plate -->
+            <rect x="10" y="54" width="18" height="28" rx="4" fill="#E32726"/>
+            <!-- Chimney -->
+            <rect x="30" y="8" width="12" height="22" rx="5" fill="#333"/>
+            <rect x="26" y="6" width="20" height="8" rx="4" fill="#555"/>
+            <!-- Coupling -->
+            <rect x="2" y="72" width="10" height="6" rx="3" fill="#888"/>
+            <rect x="128" y="72" width="10" height="6" rx="3" fill="#888"/>
+            <!-- Wheels — locomotive (3 big) -->
+            <g class="wheel" style="transform-origin:30px 82px">
+              <circle cx="30" cy="82" r="16" fill="#1a1a1a"/>
+              <circle cx="30" cy="82" r="11" fill="#555"/>
+              <circle cx="30" cy="82" r="4" fill="#FFD200"/>
+              <line x1="30" y1="70" x2="30" y2="94" stroke="#888" stroke-width="2"/>
+              <line x1="18" y1="82" x2="42" y2="82" stroke="#888" stroke-width="2"/>
+            </g>
+            <g class="wheel" style="transform-origin:72px 82px">
+              <circle cx="72" cy="82" r="16" fill="#1a1a1a"/>
+              <circle cx="72" cy="82" r="11" fill="#555"/>
+              <circle cx="72" cy="82" r="4" fill="#FFD200"/>
+              <line x1="72" y1="70" x2="72" y2="94" stroke="#888" stroke-width="2"/>
+              <line x1="60" y1="82" x2="84" y2="82" stroke="#888" stroke-width="2"/>
+            </g>
+            <g class="wheel" style="transform-origin:112px 82px">
+              <circle cx="112" cy="82" r="16" fill="#1a1a1a"/>
+              <circle cx="112" cy="82" r="11" fill="#555"/>
+              <circle cx="112" cy="82" r="4" fill="#FFD200"/>
+              <line x1="112" y1="70" x2="112" y2="94" stroke="#888" stroke-width="2"/>
+              <line x1="100" y1="82" x2="124" y2="82" stroke="#888" stroke-width="2"/>
+            </g>
+            <!-- Connecting rod -->
+            <rect x="30" y="80" width="82" height="4" rx="2" fill="#888" opacity="0.6"/>
+          </svg>
+
+          <!-- Carriage 1 -->
+          <svg class="carriage-bounce" width="110" height="90" viewBox="0 0 110 90" style="animation-delay:0.1s" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <rect x="4" y="20" width="102" height="52" rx="10" fill="#5BBF21"/>
+            <!-- Roof -->
+            <rect x="8" y="12" width="94" height="16" rx="6" fill="#3E8A14"/>
+            <!-- Windows -->
+            <rect x="14" y="27" width="22" height="18" rx="4" fill="#d4f5b0" opacity="0.9"/>
+            <rect x="44" y="27" width="22" height="18" rx="4" fill="#d4f5b0" opacity="0.9"/>
+            <rect x="74" y="27" width="22" height="18" rx="4" fill="#d4f5b0" opacity="0.9"/>
+            <!-- Coupling -->
+            <rect x="0" y="60" width="8" height="6" rx="3" fill="#888"/>
+            <rect x="102" y="60" width="8" height="6" rx="3" fill="#888"/>
+            <!-- Wheels -->
+            <g class="wheel" style="transform-origin:24px 74px">
+              <circle cx="24" cy="74" r="13" fill="#1a1a1a"/>
+              <circle cx="24" cy="74" r="8" fill="#555"/>
+              <circle cx="24" cy="74" r="3" fill="#FFD200"/>
+              <line x1="24" y1="64" x2="24" y2="84" stroke="#888" stroke-width="1.5"/>
+              <line x1="14" y1="74" x2="34" y2="74" stroke="#888" stroke-width="1.5"/>
+            </g>
+            <g class="wheel" style="transform-origin:86px 74px">
+              <circle cx="86" cy="74" r="13" fill="#1a1a1a"/>
+              <circle cx="86" cy="74" r="8" fill="#555"/>
+              <circle cx="86" cy="74" r="3" fill="#FFD200"/>
+              <line x1="86" y1="64" x2="86" y2="84" stroke="#888" stroke-width="1.5"/>
+              <line x1="76" y1="74" x2="96" y2="74" stroke="#888" stroke-width="1.5"/>
+            </g>
+          </svg>
+
+          <!-- Carriage 2 -->
+          <svg class="carriage-bounce" width="110" height="90" viewBox="0 0 110 90" style="animation-delay:0.25s" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <rect x="4" y="20" width="102" height="52" rx="10" fill="#E8367C"/>
+            <!-- Roof -->
+            <rect x="8" y="12" width="94" height="16" rx="6" fill="#B01C56"/>
+            <!-- Windows -->
+            <rect x="14" y="27" width="22" height="18" rx="4" fill="#ffd0e6" opacity="0.9"/>
+            <rect x="44" y="27" width="22" height="18" rx="4" fill="#ffd0e6" opacity="0.9"/>
+            <rect x="74" y="27" width="22" height="18" rx="4" fill="#ffd0e6" opacity="0.9"/>
+            <!-- Coupling -->
+            <rect x="0" y="60" width="8" height="6" rx="3" fill="#888"/>
+            <rect x="102" y="60" width="8" height="6" rx="3" fill="#888"/>
+            <!-- Wheels -->
+            <g class="wheel" style="transform-origin:24px 74px">
+              <circle cx="24" cy="74" r="13" fill="#1a1a1a"/>
+              <circle cx="24" cy="74" r="8" fill="#555"/>
+              <circle cx="24" cy="74" r="3" fill="#FFD200"/>
+              <line x1="24" y1="64" x2="24" y2="84" stroke="#888" stroke-width="1.5"/>
+              <line x1="14" y1="74" x2="34" y2="74" stroke="#888" stroke-width="1.5"/>
+            </g>
+            <g class="wheel" style="transform-origin:86px 74px">
+              <circle cx="86" cy="74" r="13" fill="#1a1a1a"/>
+              <circle cx="86" cy="74" r="8" fill="#555"/>
+              <circle cx="86" cy="74" r="3" fill="#FFD200"/>
+              <line x1="86" y1="64" x2="86" y2="84" stroke="#888" stroke-width="1.5"/>
+              <line x1="76" y1="74" x2="96" y2="74" stroke="#888" stroke-width="1.5"/>
+            </g>
+          </svg>
+
+        </div><!-- /train-wrapper -->
+      </div><!-- /train-scene -->
+
+    </div><!-- /curriculum-hero-inner -->
+  </div><!-- /curriculum-hero -->
+
+  <!-- Phosphor Icons (duotone) -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css"/>
+
+  <!-- Skills Spotlight Carousel -->
+  <div class="skills-carousel-section">
+    <style>
+      .skills-carousel-section {
+        padding: 1.5rem 0 2rem;
+        overflow: hidden;
+        position: relative;
+      }
+      .skills-carousel-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding: 0 2rem;
+      }
+      .skills-carousel-header h3 {
+        font-family: 'Lilita One', sans-serif;
+        font-weight: 400;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        color: #2B3990;
+        margin: 0 0 0.6rem;
+        letter-spacing: 0.01em;
+      }
+      .skills-carousel-header p {
+        font-family: 'Nunito', sans-serif;
+        font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+        color: #666;
+        line-height: 1.8;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      /* ── Carousel stage ── */
+      .skills-carousel-stage {
+        position: relative;
+        width: 100%;
+        height: 270px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ── Individual skill card ── */
+      .skill-spotlight-card {
+        position: absolute;
+        width: 264px;
+        border-radius: 28px;
+        padding: 1.8rem 1.8rem 1.6rem;
+        text-align: center;
+        cursor: pointer;
+        /* Smooth all transform/opacity together */
+        transition: transform 0.55s cubic-bezier(.34,1.2,.64,1),
+                    opacity 0.45s ease,
+                    box-shadow 0.45s ease,
+                    filter 0.45s ease;
+        user-select: none;
+        will-change: transform, opacity;
+      }
+
+      /* Position states — set by JS via data-pos */
+      /* pos=0 → active center */
+      .skill-spotlight-card[data-pos="0"] {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        z-index: 10;
+        filter: none;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 6px 20px rgba(0,0,0,0.1);
+        pointer-events: auto;
+      }
+      /* pos=±1 → first peek */
+      .skill-spotlight-card[data-pos="1"] {
+        transform: translateX(284px) scale(0.82);
+        opacity: 0.75;
+        z-index: 7;
+        filter: brightness(0.88);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        pointer-events: auto;
+      }
+      .skill-spotlight-card[data-pos="-1"] {
+        transform: translateX(-284px) scale(0.82);
+        opacity: 0.75;
+        z-index: 7;
+        filter: brightness(0.88);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        pointer-events: auto;
+      }
+      /* pos=±2 → second peek */
+      .skill-spotlight-card[data-pos="2"] {
+        transform: translateX(495px) scale(0.65);
+        opacity: 0.45;
+        z-index: 4;
+        filter: brightness(0.75);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        pointer-events: auto;
+      }
+      .skill-spotlight-card[data-pos="-2"] {
+        transform: translateX(-495px) scale(0.65);
+        opacity: 0.45;
+        z-index: 4;
+        filter: brightness(0.75);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        pointer-events: auto;
+      }
+      /* pos beyond ±2 → hidden */
+      .skill-spotlight-card[data-pos="hidden"] {
+        transform: translateX(0) scale(0.5);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Card interior */
+      .skill-card-emoji {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem;
+        width: 62px; height: 62px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.2);
+        transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+        flex-shrink: 0;
+      }
+      .skill-card-emoji i {
+        font-size: 2.1rem;
+        color: #fff;
+      }
+      .skill-spotlight-card[data-pos="0"] .skill-card-emoji {
+        transform: scale(1.15);
+      }
+      .skill-card-title {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 0.75rem;
+        line-height: 1.25;
+      }
+      .skill-card-desc {
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.7;
+        transition: opacity 0.3s ease;
+      }
+      /* Hide description on non-center cards */
+      .skill-spotlight-card:not([data-pos="0"]) .skill-card-desc {
+        opacity: 0;
+      }
+
+      /* Icon watermark background */
+      .skill-card-bg-emoji {
+        position: absolute;
+        bottom: -10px;
+        right: 10px;
+        font-size: 7rem;
+        opacity: 0.12;
+        pointer-events: none;
+        line-height: 1;
+        color: #fff;
+      }
+
+      /* Nav arrows */
+      .carousel-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .carousel-btn {
+        width: 52px; height: 52px;
+        border-radius: 50%;
+        border: 2.5px solid #2B3990;
+        background: #fff;
+        color: #2B3990;
+        font-size: 1.4rem;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), color 0.2s ease;
+        box-shadow: 0 4px 12px rgba(43,57,144,0.15);
+      }
+      .carousel-btn:hover {
+        background: #2B3990;
+        color: #fff;
+        transform: scale(1.1);
+      }
+      .carousel-btn:active { transform: scale(0.96); }
+      .carousel-btn:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+
+      /* Dot indicators */
+      .carousel-dots {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .carousel-dot {
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+        border: none;
+        padding: 0;
+      }
+      .carousel-dot.active {
+        background: #2B3990;
+        width: 24px;
+        border-radius: 4px;
+        transform: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .skill-spotlight-card { width: 220px; }
+        .skill-spotlight-card[data-pos="1"]  { transform: translateX(232px) scale(0.8); }
+        .skill-spotlight-card[data-pos="-1"] { transform: translateX(-232px) scale(0.8); }
+        .skill-spotlight-card[data-pos="2"]  { transform: translateX(400px) scale(0.62); opacity: 0.3; }
+        .skill-spotlight-card[data-pos="-2"] { transform: translateX(-400px) scale(0.62); opacity: 0.3; }
+      }
+      @media (max-width: 600px) {
+        .skills-carousel-stage { height: 260px; }
+        .skill-spotlight-card { width: 200px; }
+        .skill-spotlight-card[data-pos="1"]  { transform: translateX(185px) scale(0.72); opacity: 0.5; }
+        .skill-spotlight-card[data-pos="-1"] { transform: translateX(-185px) scale(0.72); opacity: 0.5; }
+        .skill-spotlight-card[data-pos="2"]  { transform: translateX(315px) scale(0.55); opacity: 0.2; }
+        .skill-spotlight-card[data-pos="-2"] { transform: translateX(-315px) scale(0.55); opacity: 0.2; }
+        .skill-card-emoji i { font-size: 1.6rem; }
+        .skill-card-title { font-size: 1rem; }
+      }
+    </style>
+
+    <!-- Header -->
+    <div class="skills-carousel-header reveal">
+      <h3>The Skills That Shape Their Future</h3>
+      <p>Every day, through play and purpose, we help children build the foundations they'll carry for life.</p>
+    </div>
+
+    <!-- Carousel stage -->
+    <div class="skills-carousel-stage" id="skillsCarousel" role="region" aria-label="Skills carousel">
+
+      <div class="skill-spotlight-card" data-index="0" style="background: linear-gradient(145deg, #E32726, #c01f1f);">
+        <i class="ph-duotone ph-brain skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-brain"></i></div>
+        <div class="skill-card-title">Cognitive Skills</div>
+        <p class="skill-card-desc">We help little minds learn to think, remember, and solve problems — all while having fun.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="1" style="background: linear-gradient(145deg, #3AAEDE, #1e86b8);">
+        <i class="ph-duotone ph-chat-circle-dots skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-chat-circle-dots"></i></div>
+        <div class="skill-card-title">Language & Communication</div>
+        <p class="skill-card-desc">From first words to full stories, we help kids express themselves with joy and confidence.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="2" style="background: linear-gradient(145deg, #5BBF21, #3d8a12);">
+        <i class="ph-duotone ph-plant skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-plant"></i></div>
+        <div class="skill-card-title">Life Skills</div>
+        <p class="skill-card-desc">Pouring water, packing a bag, saying "please" — small steps toward big independence.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="3" style="background: linear-gradient(145deg, #E8367C, #b01c56);">
+        <i class="ph-duotone ph-heart skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-heart"></i></div>
+        <div class="skill-card-title">Socio-Emotional Growth</div>
+        <p class="skill-card-desc">Learning to share, to care, and to say "are you okay?" Because feelings matter here.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="4" style="background: linear-gradient(145deg, #F7941D, #d4730a);">
+        <i class="ph-duotone ph-pencil-simple skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-pencil-simple"></i></div>
+        <div class="skill-card-title">Fine Motor Skills</div>
+        <p class="skill-card-desc">Little fingers, big dreams. Cutting, coloring, writing, and creating every day.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="5" style="background: linear-gradient(145deg, #5B2D8E, #3d1a6e);">
+        <i class="ph-duotone ph-person-simple-run skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-person-simple-run"></i></div>
+        <div class="skill-card-title">Gross Motor Skills</div>
+        <p class="skill-card-desc">Jump! Run! Climb! Spin! Happy bodies that love to move and play.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="6" style="background: linear-gradient(145deg, #00B4B0, #007a78);">
+        <i class="ph-duotone ph-lightbulb skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-lightbulb"></i></div>
+        <div class="skill-card-title">Thinking Skills</div>
+        <p class="skill-card-desc">Why is the sky blue? What comes next? We love it when kids ask questions.</p>
+      </div>
+
+      <div class="skill-spotlight-card" data-index="7" style="background: linear-gradient(145deg, #E8900D, #c47000);">
+        <i class="ph-duotone ph-star skill-card-bg-emoji" aria-hidden="true"></i>
+        <div class="skill-card-emoji"><i class="ph-duotone ph-star"></i></div>
+        <div class="skill-card-title">Universal Values</div>
+        <p class="skill-card-desc">Be kind. Be honest. Be brave. The values that grow right alongside them.</p>
+      </div>
+
+    </div><!-- /stage -->
+
+    <!-- Nav -->
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="skillsPrev" aria-label="Previous skill">&#8592;</button>
+      <div class="carousel-dots" id="skillsDots" role="tablist"></div>
+      <button class="carousel-btn" id="skillsNext" aria-label="Next skill">&#8594;</button>
+    </div>
+
+  </div><!-- /skills-carousel-section -->
+
+  <script>
+  /* Generate track sleepers */
+  (function() {
+    const container = document.querySelector('.train-track-sleepers');
+    if (!container) return;
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement('div');
+      s.className = 'sleeper';
+      container.appendChild(s);
+    }
+  })();
+
+  /* ── Spotlight Carousel ── */
+  (function() {
+    const cards  = Array.from(document.querySelectorAll('#skillsCarousel .skill-spotlight-card'));
+    const dotsEl = document.getElementById('skillsDots');
+    const total  = cards.length;
+    let current  = 0;
+    let autoTimer;
+
+    /* Build dots */
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', `Skill ${i + 1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    });
+
+    function getPos(cardIndex) {
+      let diff = cardIndex - current;
+      /* Wrap for circular feel */
+      if (diff > total / 2)  diff -= total;
+      if (diff < -total / 2) diff += total;
+      /* Clamp to ±2 visible, rest hidden */
+      if (diff < -2 || diff > 2) return 'hidden';
+      return String(diff);
+    }
+
+    function render() {
+      cards.forEach((card, i) => {
+        card.setAttribute('data-pos', getPos(i));
+      });
+      /* Dots */
+      const dots = dotsEl.querySelectorAll('.carousel-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      render();
+      resetAuto();
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    /* Click on peeking cards → bring to center */
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (card.getAttribute('data-pos') !== '0') goTo(i);
+      });
+    });
+
+    document.getElementById('skillsNext').addEventListener('click', next);
+    document.getElementById('skillsPrev').addEventListener('click', prev);
+
+    /* Keyboard support */
+    document.getElementById('skillsCarousel').addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft')  prev();
+    });
+
+    /* Touch/swipe */
+    let touchStartX = 0;
+    const stage = document.getElementById('skillsCarousel');
+    stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend',   e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+    });
+
+    /* Auto-advance every 4s */
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(next, 4000);
+    }
+    /* Pause on hover */
+    stage.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    stage.addEventListener('mouseleave', resetAuto);
+
+    /* Init */
+    render();
+    resetAuto();
+  })();
+  </script>

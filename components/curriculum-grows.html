@@ -1,0 +1,366 @@
+<!-- =========================================================
+     RADIANCE JUNIOR SCHOOL — Curriculum: Grows With Your Child
+     Section component — included in curriculum.html
+     ========================================================= -->
+
+<style>
+  .grows-section {
+    padding: 5rem 1.5rem;
+    background: #f8faff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grows-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #E32726, #F7941D, #FFD200, #5BBF21, #3AAEDE, #5B2D8E, #E8367C);
+  }
+
+  .grows-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .grows-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .grows-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(43, 57, 144, 0.08);
+    color: #2B3990;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(43, 57, 144, 0.15);
+  }
+
+  .grows-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #2B3990;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .grows-title span { color: #E32726; }
+
+  .grows-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* Program cards in a timeline style */
+  .programs-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* Vertical connector line */
+  .programs-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    bottom: 60px;
+    width: 3px;
+    background: linear-gradient(180deg, #E32726, #F7941D, #FFD200, #5BBF21);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  .program-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+
+  /* Alternate sides */
+  .program-item:nth-child(even) .program-card { order: 3; }
+  .program-item:nth-child(even) .program-empty { order: 1; }
+  .program-item:nth-child(even) .program-node  { order: 2; }
+
+  .program-empty { /* spacer on opposite side */ }
+
+  /* Center node */
+  .program-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .program-node-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 0 6px #fff, 0 0 0 8px currentColor;
+    flex-shrink: 0;
+  }
+
+  .program-age-badge {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    margin-top: 0.25rem;
+  }
+
+  /* Program Card */
+  .program-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow:
+      0 2px 8px rgba(43, 57, 144, 0.06),
+      0 8px 32px rgba(43, 57, 144, 0.07);
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .program-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 4px 16px rgba(43, 57, 144, 0.10),
+      0 16px 48px rgba(43, 57, 144, 0.10);
+  }
+
+  /* Per-program color theming */
+  .program-item[data-prog="playgroup"] .program-node-dot  { background: rgba(227,39,38,0.1);  color: #E32726; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #E32726; }
+  .program-item[data-prog="playgroup"] .program-age-badge { background: #E32726; }
+  .program-item[data-prog="playgroup"] .program-card::after { background: #E32726; }
+  .program-item[data-prog="playgroup"] .program-card:hover  { border-color: #E32726; }
+
+  .program-item[data-prog="nursery"] .program-node-dot  { background: rgba(247,148,29,0.1);  color: #F7941D; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #F7941D; }
+  .program-item[data-prog="nursery"] .program-age-badge { background: #F7941D; }
+  .program-item[data-prog="nursery"] .program-card::after { background: #F7941D; }
+  .program-item[data-prog="nursery"] .program-card:hover  { border-color: #F7941D; }
+
+  .program-item[data-prog="lkg"] .program-node-dot  { background: rgba(91,191,33,0.1);  color: #5BBF21; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #5BBF21; }
+  .program-item[data-prog="lkg"] .program-age-badge { background: #5BBF21; }
+  .program-item[data-prog="lkg"] .program-card::after { background: #5BBF21; }
+  .program-item[data-prog="lkg"] .program-card:hover  { border-color: #5BBF21; }
+
+  .program-item[data-prog="ukg"] .program-node-dot  { background: rgba(43,57,144,0.1);  color: #2B3990; box-shadow: 0 0 0 6px #fff, 0 0 0 8px #2B3990; }
+  .program-item[data-prog="ukg"] .program-age-badge { background: #2B3990; }
+  .program-item[data-prog="ukg"] .program-card::after { background: #2B3990; }
+  .program-item[data-prog="ukg"] .program-card:hover  { border-color: #2B3990; }
+
+  .program-label {
+    display: inline-block;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #999;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .program-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #2B3990;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .program-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .program-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .program-tag {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background: #f0f4ff;
+    color: #2B3990;
+  }
+
+  /* Responsive: stack on mobile */
+  @media (max-width: 768px) {
+    .programs-timeline::before { display: none; }
+    .program-item {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+    }
+    .program-empty { display: none; }
+    .program-node  { flex-direction: row; justify-content: flex-start; padding-left: 0; order: 0 !important; margin-bottom: 1rem; }
+    .program-card  { order: 1 !important; }
+    .program-item:nth-child(even) .program-card { order: 1 !important; }
+    .program-item:nth-child(even) .program-node  { order: 0 !important; }
+    .program-item:nth-child(even) .program-empty { display: none; }
+  }
+</style>
+
+<section class="grows-section" id="programs" aria-label="Curriculum programs by age">
+  <div class="grows-container">
+
+    <!-- Header -->
+    <div class="grows-header reveal">
+      <div class="grows-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        Age-wise Programs
+      </div>
+      <h2 class="grows-title">A Curriculum that <span>Grows With Your Child</span></h2>
+      <p class="grows-subtitle">
+        Each stage is thoughtfully designed to match your child's developmental milestones — nurturing curiosity, confidence and creativity at every age.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="programs-timeline">
+
+      <!-- Playgroup -->
+      <div class="program-item reveal" data-prog="playgroup">
+        <div class="program-card">
+          <span class="program-label">Playgroup</span>
+          <div class="program-name">Little Explorers</div>
+          <div class="program-desc">
+            A gentle, loving start to school life. Children aged 2–3 are introduced to structured play in a safe, nurturing environment that helps them overcome separation anxiety and build trust. Every session is filled with sensory activities, songs, stories and hands-on discovery.
+          </div>
+          <div class="program-highlights">
+            <span class="program-tag">Sensory Play</span>
+            <span class="program-tag">Circle Time</span>
+            <span class="program-tag">Rhymes & Songs</span>
+            <span class="program-tag">Emotional Security</span>
+          </div>
+        </div>
+        <div class="program-node">
+          <div class="program-node-dot">🌱</div>
+          <div class="program-age-badge">2–3 yrs</div>
+        </div>
+        <div class="program-empty"></div>
+      </div>
+
+      <!-- Nursery -->
+      <div class="program-item reveal" data-prog="nursery">
+        <div class="program-empty"></div>
+        <div class="program-node">
+          <div class="program-node-dot">🌸</div>
+          <div class="program-age-badge">3–4 yrs</div>
+        </div>
+        <div class="program-card">
+          <span class="program-label">Nursery</span>
+          <div class="program-name">Growing Wings</div>
+          <div class="program-desc">
+            Children aged 3–4 build a strong phonics and language foundation. They begin alphabet recognition, early writing patterns, number concepts and develop their social skills through group activities, art, and guided play with peers.
+          </div>
+          <div class="program-highlights">
+            <span class="program-tag">Phonics Foundation</span>
+            <span class="program-tag">Number Play</span>
+            <span class="program-tag">Art & Craft</span>
+            <span class="program-tag">Social Skills</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LKG -->
+      <div class="program-item reveal" data-prog="lkg">
+        <div class="program-card">
+          <span class="program-label">Lower KG</span>
+          <div class="program-name">Ready to Learn</div>
+          <div class="program-desc">
+            Our LKG program for 4–5 year olds deepens academic readiness. Children master reading consonants, blend sounds, develop counting and early math skills, and engage in science explorations and project-based learning that fires their curiosity.
+          </div>
+          <div class="program-highlights">
+            <span class="program-tag">Reading Ready</span>
+            <span class="program-tag">Early Math</span>
+            <span class="program-tag">Science Exploration</span>
+            <span class="program-tag">Creative Drama</span>
+          </div>
+        </div>
+        <div class="program-node">
+          <div class="program-node-dot">🦋</div>
+          <div class="program-age-badge">4–5 yrs</div>
+        </div>
+        <div class="program-empty"></div>
+      </div>
+
+      <!-- UKG -->
+      <div class="program-item reveal" data-prog="ukg">
+        <div class="program-empty"></div>
+        <div class="program-node">
+          <div class="program-node-dot">🚀</div>
+          <div class="program-age-badge">5–6 yrs</div>
+        </div>
+        <div class="program-card">
+          <span class="program-label">Upper KG</span>
+          <div class="program-name">Ready to Soar</div>
+          <div class="program-desc">
+            Our UKG program prepares children for formal schooling with confidence. Children work on advanced reading comprehension, addition and subtraction concepts, project-based learning and develop the independent thinking skills needed for Grade 1 and beyond.
+          </div>
+          <div class="program-highlights">
+            <span class="program-tag">Comprehension</span>
+            <span class="program-tag">Addition & Subtraction</span>
+            <span class="program-tag">Critical Thinking</span>
+            <span class="program-tag">School Readiness</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
