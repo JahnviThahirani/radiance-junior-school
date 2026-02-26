@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Radiance Junior School — Enquire about admissions, visit us or send a WhatsApp message. Located in Karanjade, Panvel, Maharashtra." />
+  <title>Contact Us | Radiance Junior School</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Patrick+Hand&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    html, body { overflow-x: hidden; }
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+    #main-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 2px 16px rgba(43,57,144,0.10);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo img {
+      height: 72px;
+      width: auto;
+      display: block;
+      transition: transform 0.2s cubic-bezier(.22,1,.36,1);
+    }
+    .nav-logo:hover img { transform: scale(1.04); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #2B3990;
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      display: block;
+      position: relative;
+      transition: color 0.2s ease, background 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 1.1rem;
+      right: 1.1rem;
+      height: 3px;
+      background: #E32726;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+      transform-origin: left;
+    }
+    .nav-links a:hover { color: #E32726; background: rgba(227,39,38,0.06); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: #E32726; font-weight: 800; }
+    .nav-links a.active::after { transform: scaleX(1); }
+    .nav-links a.nav-cta {
+      background: #E32726;
+      color: #ffffff !important;
+      border-radius: 999px;
+      padding: 0.55rem 1.5rem;
+      font-weight: 800;
+      margin-left: 0.5rem;
+      box-shadow: 0 3px 12px rgba(227,39,38,0.30);
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease;
+    }
+    .nav-links a.nav-cta::after { display: none; }
+    .nav-links a.nav-cta:hover { background: #c01f1f; color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,39,38,0.40); }
+    .nav-links a.nav-cta:active { transform: translateY(0); }
+    .nav-links a.nav-cta:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+    #nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    #nav-toggle:hover { background: rgba(43,57,144,0.08); }
+    @media (max-width: 768px) {
+      .nav-inner { height: 68px; padding: 0 1.25rem; }
+      .nav-logo img { height: 58px; }
+      #nav-toggle { display: flex; align-items: center; justify-content: center; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 1.25rem 1.25rem;
+        border-top: 2px solid rgba(43,57,144,0.1);
+        box-shadow: 0 8px 24px rgba(43,57,144,0.12);
+        gap: 0.25rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { border-radius: 10px; padding: 0.7rem 1rem; }
+      .nav-links a.nav-cta { text-align: center; margin-top: 0.5rem; margin-left: 0; }
+    }
+
+    /* =====================================================
+       CONTACT HERO
+       ===================================================== */
+    .contact-hero {
+      background: linear-gradient(135deg, #2B3990 0%, #3a4fa8 50%, #5B2D8E 100%);
+      padding: 5rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(255,210,0,0.12) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(58,174,222,0.12) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-blob-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 200px; height: 200px;
+      background: rgba(58,174,222,0.15);
+      border-radius: 0% 60% 60% 0% / 0% 50% 50% 0%;
+      pointer-events: none;
+    }
+    .hero-blob-right {
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: rgba(255,210,0,0.12);
+      border-radius: 60% 0% 0% 60% / 50% 0% 0% 50%;
+      pointer-events: none;
+    }
+    .contact-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-logo-circle {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
+    }
+    .hero-logo-circle img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+    .hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .hero-breadcrumb a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .hero-breadcrumb a:hover { color: #FFD200; }
+    .hero-breadcrumb span { color: #FFD200; }
+    .contact-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,210,0,0.15);
+      color: #FFD200;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      border: 1.5px solid rgba(255,210,0,0.25);
+    }
+    .contact-hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .contact-hero h1 em {
+      font-style: normal;
+      color: #FFD200;
+    }
+    .contact-hero p {
+      font-family: 'Patrick Hand', sans-serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 2.25rem;
+    }
+    .hero-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #E32726;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem 2.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(227,39,38,0.4);
+      transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .hero-cta-btn:hover { background: #c01f1f; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(227,39,38,0.5); }
+    .hero-cta-btn:active { transform: translateY(0); }
+    .hero-cta-btn:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+
+    /* =====================================================
+       ADMISSION PROCESS
+       ===================================================== */
+    .process-section {
+      padding: 5rem 1.5rem;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(255,210,0,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .process-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .process-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .process-eyebrow {
+      font-family: 'Patrick Hand', sans-serif;
+      font-size: 1.1rem;
+      color: #F7941D;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .process-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: #2B3990;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      position: relative;
+    }
+    /* Connecting line between steps */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 8px);
+      right: calc(12.5% + 8px);
+      height: 3px;
+      background: linear-gradient(90deg, #E32726, #F7941D, #5BBF21, #2B3990);
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+    }
+    .process-step:hover .step-number {
+      transform: scale(1.1);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    }
+    .step-number.s1 { background: linear-gradient(135deg, #E32726, #c01f1f); }
+    .step-number.s2 { background: linear-gradient(135deg, #F7941D, #e07a0a); }
+    .step-number.s3 { background: linear-gradient(135deg, #5BBF21, #45a018); }
+    .step-number.s4 { background: linear-gradient(135deg, #2B3990, #1e2b6e); }
+    .step-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #2B3990;
+      margin-bottom: 0.3rem;
+    }
+    .step-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+    }
+    @media (max-width: 680px) {
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .process-steps::before { display: none; }
+    }
+    @media (max-width: 400px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* =====================================================
+       CONTACT FORM + INFO
+       ===================================================== */
+    .contact-section {
+      padding: 5rem 1.5rem;
+      background: #f8faff;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #E32726, #F7941D, #FFD200, #5BBF21, #3AAEDE, #5B2D8E, #E8367C);
+    }
+    .contact-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- Form Card ---- */
+    .form-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(43,57,144,0.08), 0 1px 4px rgba(43,57,144,0.04);
+    }
+    .form-card h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #2B3990;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .form-card p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+    .form-label .req { color: #E32726; margin-left: 2px; }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      color: #333;
+      background: #f8faff;
+      border: 2px solid #e8ecf8;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: #bbb; }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: #2B3990;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(43,57,144,0.08);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+    .form-submit {
+      width: 100%;
+      background: #E32726;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 20px rgba(227,39,38,0.35);
+      transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.2s ease;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: #c01f1f; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(227,39,38,0.45); }
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:focus-visible { outline: 3px solid #FFD200; outline-offset: 3px; }
+    .form-note {
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      color: #aaa;
+      margin-top: 0.75rem;
+    }
+
+    /* ---- Right Column ---- */
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Fastest way card */
+    .info-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 24px rgba(43,57,144,0.08), 0 1px 4px rgba(43,57,144,0.04);
+    }
+    .info-card-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: #2B3990;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    /* WhatsApp highlight row */
+    .wa-highlight {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(.22,1,.36,1);
+    }
+    .wa-highlight:hover { background: #dcfce7; border-color: #86efac; transform: translateY(-2px); }
+    .wa-icon {
+      width: 48px; height: 48px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.35);
+    }
+    .wa-number {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #16a34a;
+      display: block;
+      line-height: 1.2;
+    }
+    .wa-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8rem;
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    /* Visit Us card */
+    .visit-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .visit-detail:last-child { margin-bottom: 0; }
+    .visit-detail a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .visit-detail a:hover { color: #2B3990; }
+
+    /* Map */
+    .map-card {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(43,57,144,0.08);
+      line-height: 0;
+    }
+    .map-card iframe {
+      width: 100%;
+      height: 220px;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 860px) {
+      .contact-container { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-card { padding: 1.75rem 1.25rem; }
+      .contact-section { padding: 3rem 1rem; }
+    }
+  
+  /* ── Page Hero — exact copy from About Us ── */
+  .page-hero-blob-l {
+    position: absolute; top: -40px; left: -80px;
+    width: 300px; height: 300px;
+    background: rgba(58,174,222,0.22);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page-hero-blob-r {
+    position: absolute; top: -40px; right: -80px;
+    width: 300px; height: 300px;
+    background: rgba(80,80,140,0.45);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page-hero-badge {
+    display: inline-block;
+    background: rgba(255,210,0,0.18);
+    border: 1.5px solid rgba(255,210,0,0.4);
+    color: #FFD200;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    padding: 0.35rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+  .page-hero-logo {
+    width: 120px; height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
+  .page-hero-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .page-hero-sub {
+    color: rgba(255,255,255,0.82);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .page-hero-star {
+    position: absolute; color: #FFD200; opacity: 0.25; font-size: 1.4rem;
+    animation: float 5s ease-in-out infinite;
+  }
+  .page-hero-star:nth-child(3) { top: 15%; left: 8%; animation-delay: 0s; }
+  .page-hero-star:nth-child(4) { top: 30%; right: 12%; animation-delay: 1.5s; }
+  .page-hero-star:nth-child(5) { bottom: 20%; left: 15%; animation-delay: 0.8s; }
+  .page-hero-star:nth-child(6) { bottom: 30%; right: 8%; animation-delay: 2.2s; }
+  .page-breadcrumb {
+    position: absolute; top: 1.25rem; left: 2rem;
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: 'Nunito', sans-serif !important; font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6); z-index: 2;
+  }
+  .page-breadcrumb a { font-family: 'Nunito', sans-serif !important; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s ease; }
+  .page-breadcrumb a:hover { color: #FFD200; }
+  .page-breadcrumb span { font-family: 'Nunito', sans-serif !important; color: #FFD200; font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+<header id="main-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Radiance Junior School — Home">
+      <img src="assets/logo.png" alt="Radiance Junior School" />
+    </a>
+    <button id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+      onclick="
+        const menu = document.getElementById('nav-menu');
+        const open = menu.classList.toggle('open');
+        this.setAttribute('aria-expanded', open);
+      ">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+           stroke="#2B3990" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="index.html"      id="nav-home">Home</a></li>
+      <li><a href="curriculum.html" id="nav-curriculum">Curriculum</a></li>
+      <li><a href="about.html"      id="nav-about">About Us</a></li>
+      <li><a href="contact.html"    id="nav-contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  (function() {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const map = {
+      'index.html': 'nav-home',
+      '': 'nav-home',
+      'curriculum.html': 'nav-curriculum',
+      'about.html': 'nav-about',
+      'contact.html': 'nav-contact',
+    };
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => a.classList.remove('active'));
+    const activeId = map[page];
+    if (activeId && activeId !== 'nav-contact') {
+      const el = document.getElementById(activeId);
+      if (el) el.classList.add('active');
+    }
+  })();
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.remove('open');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+<section class="contact-hero" aria-label="Contact page hero">
+  <div class="page-hero-blob-l"></div>
+  <div class="page-hero-blob-r"></div>
+  <span class="page-hero-star">★</span>
+  <span class="page-hero-star">✦</span>
+  <span class="page-hero-star">★</span>
+  <span class="page-hero-star">✦</span>
+  <div class="page-breadcrumb"><a href="index.html">Home</a><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>Contact Us</span></div>
+  <div class="contact-hero-inner" style="position:relative;z-index:1;">
+    <div class="page-hero-logo">
+      <img src="assets/logo.png" alt="Radiance Junior School" />
+    </div>
+
+    <h1>Give Your Child <em>the Right Start</em></h1>
+    <p class="page-hero-sub">Admissions open for 2025–26. Reach out — we'd love to show you around and help you find the perfect fit for your little one.</p>
+    <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20would%20like%20to%20enquire%20about%20admissions."
+       target="_blank" class="hero-cta-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enquire on WhatsApp — Instant Reply!
+    </a>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     ADMISSION PROCESS
+     ===================================================== -->
+<section class="process-section" aria-label="Admission process">
+  <div class="process-container">
+    <div class="process-header reveal">
+      <span class="process-eyebrow">Simple &amp; Easy</span>
+      <h2 class="process-title">Admission Process</h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-number s1">1</div>
+        <div class="step-name">Send a Message</div>
+        <div class="step-desc">WhatsApp or fill the form below</div>
+      </div>
+      <div class="process-step">
+        <div class="step-number s2">2</div>
+        <div class="step-name">We'll Call You</div>
+        <div class="step-desc">Understand your needs</div>
+      </div>
+      <div class="process-step">
+        <div class="step-number s3">3</div>
+        <div class="step-name">Visit School</div>
+        <div class="step-desc">Guided tour</div>
+      </div>
+      <div class="process-step">
+        <div class="step-number s4">4</div>
+        <div class="step-name">Enroll!</div>
+        <div class="step-desc">With our help</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     CONTACT FORM + INFO
+     ===================================================== -->
+<section class="contact-section" id="contact-form" aria-label="Contact form and information">
+  <div class="contact-container">
+
+    <!-- Form -->
+    <div class="form-card reveal">
+      <h2>Get in Touch</h2>
+      <p>Fill in your details — we'll reach out shortly!</p>
+
+      <form id="enquiry-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="parent-name">Parent's Name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="parent-name" name="parent_name"
+                 placeholder="Your full name" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone <span class="req">*</span></label>
+          <input class="form-input" type="tel" id="phone" name="phone"
+                 placeholder="+91 XXXXX XXXXX" required autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="child-age">Child's Age</label>
+          <select class="form-select" id="child-age" name="child_age">
+            <option value="" disabled selected>Select age group</option>
+            <option value="2-3">2–3 years (Playgroup)</option>
+            <option value="3-4">3–4 years (Nursery)</option>
+            <option value="4-5">4–5 years (LKG)</option>
+            <option value="5-6">5–6 years (UKG)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message"
+                    placeholder="Any questions?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Enquiry via WhatsApp
+        </button>
+        <p class="form-note">Sends directly to our WhatsApp for instant reply!</p>
+      </form>
+    </div>
+
+    <!-- Right column -->
+    <div class="contact-right reveal">
+
+      <!-- Fastest way -->
+      <div class="info-card">
+        <div class="info-card-title">
+          📱 Fastest Way to Reach Us
+        </div>
+        <a href="https://wa.me/919770322022" target="_blank" class="wa-highlight">
+          <div class="wa-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <span class="wa-number">+91 9770 32 2022</span>
+            <span class="wa-label">Tap to chat on WhatsApp →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="info-card">
+        <div class="info-card-title">📍 Visit Us</div>
+        <div class="visit-detail">
+          <span>📌</span>
+          <span>Shop No. 7-11, Plot No. 17, Sector-2A, Karanjade, Tal. Panvel, Dist. Raigad, Maharashtra - 410 206</span>
+        </div>
+        <div class="visit-detail">
+          <span>📞</span>
+          <a href="tel:+919770322022">+91 9770 32 2022</a>
+        </div>
+        <div class="visit-detail">
+          <span>✉️</span>
+          <a href="/cdn-cgi/l/email-protection#156774717c747b76707f607b7c7a6766767d7a7a793b677f662720557278747c793b767a78"><span class="__cf_email__" data-cfemail="93e1f2f7faf2fdf0f6f9e6fdfafce1e0f0fbfcfcffbde1f9e0a1a6d3f4fef2faffbdf0fcfe">[email&#160;protected]</span></a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.4!2d73.0943!3d18.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e8c4a5b3d3f7%3A0x1234567890abcdef!2sKaranjade%2C%20Panvel%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin&q=Shop+No+7-11+Plot+No+17+Sector+2A+Karanjade+Panvel+Maharashtra+410206"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Radiance Junior School location on Google Maps">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer style="background:linear-gradient(135deg,#2B3990 0%,#1e2b6e 100%);color:#fff;padding:3rem 2rem 1.5rem;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-bottom:2.5rem;">
+      <div>
+        <img src="assets/logo.png" alt="Radiance Junior School" style="height:100px;width:auto;margin-bottom:1rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3));" />
+        <p style="color:var(--yellow);font-family:'Patrick Hand',sans-serif;font-size:1.1rem;font-weight:700;line-height:1.5;margin-bottom:0.6rem;">Where Little Learners Grow, Explore & Thrive!</p>
+        <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;line-height:1.6;margin-bottom:1.25rem;">A joyful, nurturing space for your little one's first big steps in learning.</p>
+        <div style="display:flex;gap:0.75rem;">
+          <a href="https://www.instagram.com/radiance_preschool/" target="_blank" aria-label="Instagram" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Radiancejuniorschool" target="_blank" aria-label="YouTube" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://share.google/gVPGNSkuBPrVfjtdN" target="_blank" aria-label="Google Reviews" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </a>
+          <a href="tel:+919770322022" aria-label="Call us" style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Quick Links</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li><a href="index.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">🏠 Home</a></li>
+          <li><a href="curriculum.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">📚 Curriculum</a></li>
+          <li><a href="about.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">🏫 About Us</a></li>
+          <li><a href="index.html#testimonials" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">⭐ Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Contact Us</h4>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="color:rgba(255,255,255,0.75);font-size:0.85rem;line-height:1.6;">📍 Shop No. 7-11, Plot No. 17, Sector-2A, Karanjade, Panvel, Maharashtra - 410 206</div>
+          <a href="tel:+919770322022" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">📞 +91 9770 32 2022</a>
+          <a href="/cdn-cgi/l/email-protection#a1d3c0c5c8c0cfc2c4cbd4cfc8ced3d2c2c9cececd8fd3cbd29394e1c6ccc0c8cd8fc2cecc" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;word-break:break-all;transition:color 0.2s ease;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">✉️ <span class="__cf_email__" data-cfemail="2a584b4e434b44494f405f4443455859494245454604584059181f6a4d474b434604494547">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:1rem;color:var(--yellow);">Enquire Now</h4>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;">Admissions open for 2025–26. Reach out on WhatsApp for fastest response!</p>
+        <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" class="btn-whatsapp" style="font-size:0.9rem;padding:0.65rem 1.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Enquiry
+        </a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="color:rgba(255,255,255,0.6);font-size:0.8rem;">© 2025 Radiance Junior School. All rights reserved. | Karanjade, Panvel, Maharashtra</div>
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Made with ❤️ for little learners</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20am%20interested%20in%20admissions."
+   target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- =====================================================
+     SCRIPTS
+     ===================================================== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form → WhatsApp
+  document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('parent-name').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const age     = document.getElementById('child-age').value;
+    const message = document.getElementById('message').value.trim();
+
+    // Basic validation
+    if (!name) { document.getElementById('parent-name').focus(); return; }
+    if (!phone) { document.getElementById('phone').focus(); return; }
+
+    // Build WhatsApp message
+    const ageLabels = {
+      '2-3': '2–3 years (Playgroup)',
+      '3-4': '3–4 years (Nursery)',
+      '4-5': '4–5 years (LKG)',
+      '5-6': '5–6 years (UKG)',
+    };
+    let text = `

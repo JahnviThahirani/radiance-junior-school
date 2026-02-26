@@ -1,0 +1,225 @@
+<!-- =========================================================
+     RADIANCE JUNIOR SCHOOL — Header Component
+     Fonts: Nunito (nav/body), Patrick Hand (script), Aladin (logo only)
+     ========================================================= -->
+
+<style>
+  #main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 2px 16px rgba(43, 57, 144, 0.10);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Nav container */
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  /* Logo */
+  .nav-logo img {
+    height: 72px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1);
+  }
+  .nav-logo:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Nav links group */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Individual nav link */
+  .nav-links a {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2B3990;
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    transition: color 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+
+  /* Underline indicator */
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 1.1rem;
+    right: 1.1rem;
+    height: 3px;
+    background: #E32726;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+    transform-origin: left;
+  }
+
+  .nav-links a:hover {
+    color: #E32726;
+    background: rgba(227, 39, 38, 0.06);
+  }
+
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Active/current page — underlined */
+  .nav-links a.active {
+    color: #E32726;
+    font-weight: 800;
+  }
+  .nav-links a.active::after {
+    transform: scaleX(1);
+  }
+
+  /* Contact Us — red pill button */
+  .nav-links a.nav-cta {
+    background: #E32726;
+    color: #ffffff !important;
+    border-radius: 999px;
+    padding: 0.55rem 1.5rem;
+    font-weight: 800;
+    margin-left: 0.5rem;
+    box-shadow: 0 3px 12px rgba(227, 39, 38, 0.30);
+    transition: background 0.2s ease, transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease;
+  }
+  .nav-links a.nav-cta::after {
+    display: none;
+  }
+  .nav-links a.nav-cta:hover {
+    background: #c01f1f;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 39, 38, 0.40);
+  }
+  .nav-links a.nav-cta:active {
+    transform: translateY(0);
+  }
+  .nav-links a.nav-cta:focus-visible {
+    outline: 3px solid #FFD200;
+    outline-offset: 3px;
+  }
+
+  /* Hamburger button — mobile only */
+  #nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  #nav-toggle:hover { background: rgba(43,57,144,0.08); }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 768px) {
+    .nav-inner { height: 68px; padding: 0 1.25rem; }
+    .nav-logo img { height: 58px; }
+
+    #nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem 1.25rem 1.25rem;
+      border-top: 2px solid rgba(43,57,144,0.1);
+      box-shadow: 0 8px 24px rgba(43,57,144,0.12);
+      gap: 0.25rem;
+    }
+    .nav-links.open { display: flex; }
+
+    .nav-links a { border-radius: 10px; padding: 0.7rem 1rem; }
+    .nav-links a.nav-cta { text-align: center; margin-top: 0.5rem; margin-left: 0; }
+  }
+</style>
+
+<header id="main-header">
+  <div class="nav-inner">
+
+    <!-- Logo — larger, left aligned -->
+    <a href="index.html" class="nav-logo" aria-label="Radiance Junior School — Home">
+      <img src="assets/logo.png" alt="Radiance Junior School" />
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+      onclick="
+        const menu = document.getElementById('nav-menu');
+        const open = menu.classList.toggle('open');
+        this.setAttribute('aria-expanded', open);
+      ">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+           stroke="#2B3990" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- Nav links: Home, Curriculum, About Us, Contact Us (button) -->
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="index.html"      id="nav-home">Home</a></li>
+      <li><a href="curriculum.html" id="nav-curriculum">Curriculum</a></li>
+      <li><a href="about.html"      id="nav-about">About Us</a></li>
+      <li><a href="contact.html"    id="nav-contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+
+  </div>
+</header>
+
+<script>
+  // Auto-highlight active nav link based on current page filename
+  (function() {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const map = {
+      'index.html':      'nav-home',
+      '':                'nav-home',
+      'curriculum.html': 'nav-curriculum',
+      'about.html':      'nav-about',
+      'contact.html':    'nav-contact',
+    };
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => a.classList.remove('active'));
+    const activeId = map[page];
+    if (activeId && activeId !== 'nav-contact') {
+      const el = document.getElementById(activeId);
+      if (el) el.classList.add('active');
+    }
+  })();
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.remove('open');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

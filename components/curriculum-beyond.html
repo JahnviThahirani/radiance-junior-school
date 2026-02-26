@@ -1,0 +1,291 @@
+<!-- =========================================================
+     RADIANCE JUNIOR SCHOOL — Curriculum: Learning Beyond the Classroom
+     Section component — included in curriculum.html
+     ========================================================= -->
+
+<style>
+  .beyond-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #2B3990 0%, #1e2b6e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Radial glow decorations */
+  .beyond-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 210, 0, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .beyond-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(58, 174, 222, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .beyond-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .beyond-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .beyond-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 210, 0, 0.15);
+    color: #FFD200;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1.5px solid rgba(255, 210, 0, 0.25);
+  }
+
+  .beyond-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .beyond-title span { color: #FFD200; }
+
+  .beyond-subtitle {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* Activity cards grid */
+  .beyond-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .beyond-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1),
+                background 0.3s ease,
+                border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .beyond-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 60%);
+    border-radius: 20px;
+    pointer-events: none;
+  }
+
+  .beyond-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 210, 0, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .beyond-card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), background 0.3s ease;
+  }
+
+  .beyond-card:hover .beyond-card-icon {
+    background: rgba(255, 210, 0, 0.2);
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  .beyond-card-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .beyond-card-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+  }
+
+  /* Bottom CTA strip */
+  .beyond-cta-strip {
+    background: rgba(255, 210, 0, 0.1);
+    border: 1.5px solid rgba(255, 210, 0, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .beyond-cta-text h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #FFD200;
+    margin-bottom: 0.4rem;
+  }
+
+  .beyond-cta-text p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+  }
+
+  .beyond-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFD200;
+    color: #2B3990;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(255, 210, 0, 0.3);
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1),
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .beyond-cta-btn:hover {
+    background: #ffe033;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(255, 210, 0, 0.45);
+  }
+  .beyond-cta-btn:active { transform: translateY(0); }
+  .beyond-cta-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  @media (max-width: 900px) {
+    .beyond-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .beyond-grid { grid-template-columns: 1fr; }
+    .beyond-cta-strip { flex-direction: column; text-align: center; align-items: center; }
+  }
+</style>
+
+<section class="beyond-section" id="beyond" aria-label="Learning Beyond the Classroom">
+  <div class="beyond-container">
+
+    <!-- Header -->
+    <div class="beyond-header reveal">
+      <div class="beyond-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Experiential Learning
+      </div>
+      <h2 class="beyond-title">Learning <span>Beyond the Classroom</span></h2>
+      <p class="beyond-subtitle">
+        At Radiance, the world is the classroom. Every outing, activity and celebration is a learning opportunity crafted with purpose.
+      </p>
+    </div>
+
+    <!-- Activity Cards -->
+    <div class="beyond-grid">
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🌙</div>
+        <div class="beyond-card-title">Day Care &amp; Tuition Classes</div>
+        <div class="beyond-card-desc">Our after-school program offers both supervised day care (available until 7:30 PM) and structured tuition sessions — giving working parents complete peace of mind while ensuring every child gets the academic support and personalised attention they need to thrive.</div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🎭</div>
+        <div class="beyond-card-title">Cultural Celebrations</div>
+        <div class="beyond-card-desc">Festivals, cultural days and events where children experience India's rich diversity — building inclusion, empathy and a sense of belonging.</div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🌱</div>
+        <div class="beyond-card-title">Garden &amp; Nature Play</div>
+        <div class="beyond-card-desc">Hands-on gardening, seed planting and nature exploration that teach responsibility, patience and a deep love for the environment.</div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🥋</div>
+        <div class="beyond-card-title">Extra-Curricular Activities</div>
+        <div class="beyond-card-desc">From classical dance and vocal music to karate and yoga, our structured extra-curricular program helps children discover their passions, build discipline and develop confidence beyond the classroom — all within the school premises.</div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🔬</div>
+        <div class="beyond-card-title">Mini Science Labs</div>
+        <div class="beyond-card-desc">Simple, awe-inspiring science experiments that ignite curiosity and teach children to observe, question and discover — just like real scientists.</div>
+      </div>
+
+      <div class="beyond-card reveal">
+        <div class="beyond-card-icon">🎨</div>
+        <div class="beyond-card-title">Art &amp; Craft Studio</div>
+        <div class="beyond-card-desc">Open-ended art, clay work, collage and messy play sessions where children express themselves freely — building creativity, confidence and fine motor mastery.</div>
+      </div>
+
+    </div>
+
+    <!-- CTA Strip -->
+    <div class="beyond-cta-strip reveal">
+      <div class="beyond-cta-text">
+        <h3>See it for yourself — visit our school!</h3>
+        <p>Book a free school tour and watch your little one's eyes light up with curiosity and excitement.</p>
+      </div>
+      <a href="https://wa.me/919770322022?text=Hello%20Radiance%20Junior%20School!%20I%20would%20like%20to%20book%20a%20school%20visit."
+         target="_blank" class="beyond-cta-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Book a School Visit
+      </a>
+    </div>
+
+  </div>
+</section>
