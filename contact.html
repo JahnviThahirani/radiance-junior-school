@@ -994,4 +994,20 @@
       '4-5': '4–5 years (LKG)',
       '5-6': '5–6 years (UKG)',
     };
-    let text = `
+    let text = `Hello Radiance Junior School! 👋
+
+I would like to enquire about admission.
+
+👤 Parent Name: ${name}
+📞 Phone: ${phone}${age ? `
+👶 Child's Age: ${ageLabels[age] || age}` : ''}${message ? `
+💬 Message: ${message}` : ''}
+
+Please get in touch with me. Thank you!`;
+
+    const url = 'https://wa.me/919770322022?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
+  });
+</script>
+</body>
+</html>
